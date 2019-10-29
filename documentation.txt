@@ -1,0 +1,102 @@
+Cubereum Assignment - Documentation
+
+
+Installation:
+
+- Clone the repository
+- npm install (To install dependecies)
+- mongod.exe (from the mongodb bin folder to start mongodb server)
+- npm start (To start the server)  
+
+POSTMAN:
+	Test all API routes 
+
+Routes:
+
+ Register User:
+	POST - http://localhost:8000/authentication/register
+
+	Body (x-www-form-urlencoded):
+		username - (String)
+		password - (One uppercase, one lowercase, one number and one special character)
+		email - (valid email)
+
+ Login User:
+	POST - http://localhost:8000/authentication/login
+
+	Body (x-www-form-urlencoded):
+		username 
+		password 
+	Response - copy the token
+
+ User profile:
+	GET - http://localhost:8000/authentication/profile
+
+	Headers Content-type-(x-www-form-urlencoded):
+		authorization - paste the token copied when logged in 
+		
+
+
+ Create new blog:
+	POST - http://localhost:8000/blogs/newBlog
+
+	Headers Content-type-(x-www-form-urlencoded):
+		authorization - paste the token copied when logged in 
+
+	Body (x-www-form-urlencoded):
+		title 
+		body
+		createdBy(* The name that you enter must match the username. This field won't be 				required when we build a front-end)
+		
+
+ Get all blogs:
+	GET - http://localhost:8000/blogs/allBlogs
+
+	Headers Content-type-(x-www-form-urlencoded):
+		authorization - paste the token copied when logged in 
+
+ Get single blog:
+	GET - http://localhost:8000/blogs/singleBlog/:id (Blog id)
+
+	Headers Content-type-(x-www-form-urlencoded):
+		authorization - paste the token copied when logged in
+
+ Update blog:
+	PUT - http://localhost:8000/blogs/updateBlog
+
+	Headers Content-type-(x-www-form-urlencoded):
+		authorization - paste the token copied when logged in
+
+	Body:
+		_id (Blog id)
+		title
+		body
+
+ Delete blog:
+	DELETE - http://localhost:8000/blogs/deleteBlog/:id (Blog id)
+
+	Headers Content-type-(x-www-form-urlencoded):
+		authorization - paste the token copied when logged in
+
+Features:
+	- Password hashing using bcrypt-nodejs
+	- Hashing and salting user Id using JsonWebTokens
+	- Performed high level validation
+	- Efficient error handling for users
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
